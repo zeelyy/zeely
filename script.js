@@ -1,15 +1,9 @@
-```javascript
 const immagini = document.querySelectorAll(".immagine-card");
 
 let posizione = 1;
 
 
-/*
-    0 = sinistra
-    1 = centro
-    2 = destra
-*/
-
+// Aggiorna la posizione delle immagini
 function aggiornaPosizioni() {
 
     immagini.forEach((immagine, index) => {
@@ -20,9 +14,7 @@ function aggiornaPosizioni() {
 
             immagine.className = "immagine-card centro";
 
-        } else if (
-            index === (posizione + 2) % 3
-        ) {
+        } else if (index === (posizione + 2) % 3) {
 
             immagine.className = "immagine-card sinistra";
 
@@ -34,69 +26,31 @@ function aggiornaPosizioni() {
 
     });
 
-    /*
-       Riattiva l'animazione woosh
-    */
-
+    // Effetto woosh
     setTimeout(() => {
-
         immagini[posizione].classList.add("woosh");
-
     }, 20);
 }
 
 
-/*
-    Vai direttamente a una delle tre immagini
-*/
-
-function vaiA(numero) {
-
-    if (numero === posizione) {
-        return;
-    }
-
-    posizione = numero;
-
-    aggiornaPosizioni();
-}
-
-
-/*
-    Cliccando sulle immagini
-*/
-
+// Quando clicchi un'immagine
 immagini.forEach((immagine, index) => {
 
     immagine.addEventListener("click", () => {
 
-        vaiA(index);
+        // Se è già al centro non fare niente
+        if (index === posizione) {
+            return;
+        }
+
+        posizione = index;
+
+        aggiornaPosizioni();
 
     });
 
 });
 
 
-/*
-    Cambio automatico ogni 4 secondi
-*/
-
-setInterval(() => {
-
-    posizione++;
-
-    if (posizione > 2) {
-        posizione = 0;
-    }
-
-    aggiornaPosizioni();
-
-}, 4000);
-
-
-/*
-    Avvio
-*/
-
+// Avvio iniziale
 aggiornaPosizioni();
-```

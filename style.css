@@ -80,12 +80,8 @@ body {
 .immagine-card img {
     width: 100%;
     height: 100%;
-
     object-fit: cover;
-
     display: block;
-
-    animation: rotazione 6s linear infinite;
 }
 
 
@@ -296,4 +292,103 @@ body {
     filter: brightness(1);
     z-index: 10;
 }
+```css
+/* =========================
+   EFFETTO 3D
+   ========================= */
+
+.contenitore {
+    perspective: 1200px;
+}
+
+
+/* Rotazione 3D continua */
+
+.sinistra {
+    animation: rotazione3DSinistra 5s ease-in-out infinite;
+}
+
+.centro {
+    animation: rotazione3DCentro 5s ease-in-out infinite;
+}
+
+.destra {
+    animation: rotazione3DDestra 5s ease-in-out infinite;
+}
+
+
+/* GIF sinistra */
+
+@keyframes rotazione3DSinistra {
+
+    0% {
+        transform: translateX(-360px) scale(0.85) rotateY(0deg);
+    }
+
+    50% {
+        transform: translateX(-360px) scale(0.85) rotateY(180deg);
+    }
+
+    100% {
+        transform: translateX(-360px) scale(0.85) rotateY(360deg);
+    }
+
+}
+
+
+/* GIF centrale */
+
+@keyframes rotazione3DCentro {
+
+    0% {
+        transform: translateX(0) scale(1.1) rotateY(0deg);
+    }
+
+    50% {
+        transform: translateX(0) scale(1.1) rotateY(180deg);
+    }
+
+    100% {
+        transform: translateX(0) scale(1.1) rotateY(360deg);
+    }
+
+}
+
+
+/* GIF destra */
+
+@keyframes rotazione3DDestra {
+
+    0% {
+        transform: translateX(360px) scale(0.85) rotateY(0deg);
+    }
+
+    50% {
+        transform: translateX(360px) scale(0.85) rotateY(180deg);
+    }
+
+    100% {
+        transform: translateX(360px) scale(0.85) rotateY(360deg);
+    }
+
+}
+
+
+/* Effetto ingrandimento col mouse */
+
+.sinistra:hover {
+    animation-play-state: paused;
+    transform: translateX(-360px) scale(1.05) rotateY(0deg);
+}
+
+.centro:hover {
+    animation-play-state: paused;
+    transform: translateX(0) scale(1.25) rotateY(0deg);
+}
+
+.destra:hover {
+    animation-play-state: paused;
+    transform: translateX(360px) scale(1.05) rotateY(0deg);
+}
+```
 ```

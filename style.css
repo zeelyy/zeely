@@ -252,4 +252,28 @@ body {
     }
 
 }
+/* =========================
+   EFFETTO HOVER
+   ========================= */
+
+.sinistra:hover {
+    transform: translateX(-360px) scale(1.05);
+    opacity: 1;
+    filter: brightness(1);
+    z-index: 10;
+}
+
+.centro:hover {
+    transform: translateX(0) scale(1.25);
+    opacity: 1;
+    filter: brightness(1);
+    z-index: 10;
+}
+
+.destra:hover {
+    transform: translateX(360px) scale(1.05);
+    opacity: 1;
+    filter: brightness(1);
+    z-index: 10;
+}
 ```
